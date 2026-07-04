@@ -1252,7 +1252,7 @@ withDefaults(
   height: 2.6rem;
   margin: 0 auto;
   background: currentColor;
-  mask: url("/images/download.svg") center / contain no-repeat;
+  mask: url("../public/images/download.svg") center / contain no-repeat;
 }
 
 .deck-download-batch__label {

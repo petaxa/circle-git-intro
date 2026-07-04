@@ -13,7 +13,7 @@ const steps = [
     label: "01",
     title: "Pull Requestを作成する",
     image: {
-      src: "/images/create-pr.png",
+      src: "images/create-pr.png",
       alt: "Pull Requestを作成するGitHub画面",
     },
   },
@@ -21,7 +21,7 @@ const steps = [
     label: "02",
     title: "Pull Requestをマージする",
     image: {
-      src: "/images/merge-pr.png",
+      src: "images/merge-pr.png",
       alt: "Pull RequestをマージするGitHub画面",
     },
   },

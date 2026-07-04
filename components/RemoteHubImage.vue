@@ -12,7 +12,7 @@ defineProps<{
   <figure class="deck-remote-image-frame" :class="{ 'deck-remote-image-frame--compact': compact }">
     <img
       class="deck-remote-image"
-      src="/images/remote-hub-diagram.svg"
+      :src="'images/remote-hub-diagram.svg'"
       alt="リモートリポジトリとローカルリポジトリの図"
       :style="{ opacity: imageOpacity }"
     />
