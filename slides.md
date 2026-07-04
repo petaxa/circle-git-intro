@@ -8,6 +8,7 @@ drawings:
   persist: false
 transition: slide-left
 comark: true
+routerMode: hash
 duration: 35min
 ---
 

@@ -6,6 +6,7 @@
     "build": "slidev build",
     "dev": "slidev",
     "export": "slidev export",
+    "serve": "serve dist/",
     "prepare": "vp config"
   },
   "dependencies": {
@@ -15,6 +16,7 @@
     "vue": "^3.5.33"
   },
   "devDependencies": {
+    "serve": "^14.2.6",
     "vite-plus": "catalog:"
   },
   "packageManager": "pnpm@11.8.0"
