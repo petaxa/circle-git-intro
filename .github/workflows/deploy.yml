@@ -34,7 +34,7 @@ jobs:
         run: vp install --frozen-lockfile
 
       - name: Build
-        run: vp run build --base /${{github.event.repository.name}}/
+        run: vp run build --base ./
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
