@@ -19,6 +19,8 @@ const platformOptions = [
       </p>
       <CommandBlock command='git commit -m "first commit"' variant="hands-on" />
       <p class="deck-note">この記録がコミット</p>
+      <p class="deck-note">git config --global user.email ""</p>
+      <p class="deck-note">git config --global user.name ""</p>
     </div>
 
     <template #overlay>
