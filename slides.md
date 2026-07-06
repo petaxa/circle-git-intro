@@ -412,6 +412,14 @@ import Slide50 from "./pages/50_hands_on_push.vue";
 
 ---
 
+<Slide50a />
+
+<script setup lang="ts">
+import Slide50a from "./pages/50a_hands_on_git_config.vue";
+</script>
+
+---
+
 <Slide51 />
 
 <script setup lang="ts">

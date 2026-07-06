@@ -929,6 +929,14 @@ withDefaults(
   white-space: pre;
 }
 
+.deck-command-card--shell.deck-command-card--multiline code {
+  display: grid;
+  align-items: start;
+  row-gap: 0.58rem;
+  padding-top: 1.05rem;
+  padding-bottom: 1.15rem;
+}
+
 .deck-command-card--shell.deck-command-card--setup code,
 .deck-command-card--shell.deck-command-card--hands-on code {
   font-size: 1.55rem;
@@ -955,6 +963,12 @@ withDefaults(
 .deck-command-card--shell.deck-command-card--compact .deck-command-card__token {
   overflow-wrap: anywhere;
   white-space: pre-wrap;
+}
+
+.deck-command-card__line {
+  display: flex;
+  align-items: baseline;
+  min-width: 0;
 }
 
 .deck-command-card__chrome {

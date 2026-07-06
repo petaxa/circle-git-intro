@@ -21,10 +21,10 @@ const props = withDefaults(
 const copied = ref(false);
 let copiedTimer: ReturnType<typeof setTimeout> | undefined;
 
-const shellTokens = computed(() => {
+function tokenizeShellLine(command: string) {
   let commandSeen = false;
 
-  return Array.from(props.command.matchAll(/"[^"]*"|'[^']*'|\s+|\S+/g)).map<ShellToken>((match) => {
+  return Array.from(command.matchAll(/"[^"]*"|'[^']*'|\s+|\S+/g)).map<ShellToken>((match) => {
     const value = match[0];
 
     if (/^\s+$/.test(value)) {
@@ -50,9 +50,16 @@ const shellTokens = computed(() => {
 
     return { kind: "argument", value };
   });
+}
+
+const shellLines = computed(() => {
+  return props.command.split(/\r?\n/).map((line) => tokenizeShellLine(line));
 });
 
-const isCompact = computed(() => props.command.length > 54);
+const isCompact = computed(() => {
+  return Math.max(...props.command.split(/\r?\n/).map((line) => line.length)) > 54;
+});
+const isMultiline = computed(() => shellLines.value.length > 1);
 
 function copyCommandWithFallback() {
   if (typeof document !== "undefined") {
@@ -125,6 +132,7 @@ onBeforeUnmount(() => {
       'deck-command-card--setup': variant === 'setup',
       'deck-command-card--hands-on': variant === 'hands-on',
       'deck-command-card--compact': isCompact,
+      'deck-command-card--multiline': isMultiline,
     }"
   >
     <span class="deck-command-card__chrome" aria-hidden="true" />
@@ -143,14 +151,20 @@ onBeforeUnmount(() => {
         <path d="M5 15V7a2 2 0 0 1 2-2h8" />
       </svg>
     </button>
-    <code :class="`language-${language}`"
-      ><span class="deck-command-card__prompt" aria-hidden="true">$</span
-      ><span
-        v-for="(token, index) in shellTokens"
-        :key="index"
-        :class="`deck-command-card__token deck-command-card__token--${token.kind}`"
-        >{{ token.value }}</span
-      ></code
-    >
+    <code :class="`language-${language}`">
+      <span
+        v-for="(line, lineIndex) in shellLines"
+        :key="lineIndex"
+        class="deck-command-card__line"
+      >
+        <span class="deck-command-card__prompt" aria-hidden="true">$</span>
+        <span
+          v-for="(token, tokenIndex) in line"
+          :key="tokenIndex"
+          :class="`deck-command-card__token deck-command-card__token--${token.kind}`"
+          >{{ token.value }}</span
+        >
+      </span>
+    </code>
   </div>
 </template>

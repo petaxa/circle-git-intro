@@ -15,10 +15,17 @@ const platformOptions = [
       <p
         class="deck-step-title deck-step-title--hands-on deck-step-title--wide deck-step-title--compact deck-step-title--nowrap"
       >
-        ローカルリポジトリに記録する
+        コミットする人の情報を設定する
       </p>
-      <CommandBlock command='git commit -m "first commit"' variant="hands-on" />
-      <p class="deck-note">この記録がコミット</p>
+      <CommandBlock
+        command='git config --global user.email "<メールアドレス>"
+git config --global user.name "<名前>"'
+        variant="hands-on"
+      />
+      <section class="deck-note">
+        <p>コミットに残る名前とメールアドレスをGitに教える</p>
+        <p>「&lt;メールアドレス&gt;」「&lt;名前&gt;」は&lt;&gt;も含めて置き換える</p>
+      </section>
     </div>
 
     <template #overlay>

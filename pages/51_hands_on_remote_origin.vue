@@ -21,7 +21,10 @@ const platformOptions = [
         command="git remote add origin git@github.com:&lt;ユーザー名&gt;/first-repo.git"
         variant="hands-on"
       />
-      <p class="deck-note">origin は登録したリモートリポジトリの名前</p>
+      <section class="deck-note">
+        <p>origin は登録したリモートリポジトリの名前</p>
+        <p class="deck-note">「&lt;ユーザー名&gt;」は&lt;&gt;も含めて置き換える</p>
+      </section>
     </div>
 
     <template #overlay>
